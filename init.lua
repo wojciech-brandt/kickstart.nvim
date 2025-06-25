@@ -806,7 +806,18 @@ require('lazy').setup({
       vim.cmd.hi 'Comment gui=none'
     end,
     config = true,
-    opts = { transparent_mode = true },
+    opts = {
+      transparent_mode = false,
+      terminal_colors = true,
+      inverse = true,
+      contrast = 'hard',
+      overrides = {
+        StatusLine = { bg = '#b16286' },
+        StatusLineNC = { bg = '#b16286' },
+        StatusLineTerm = { bg = '#b16286' },
+        StatusLineTermNC = { bg = '#b16286' },
+      },
+    },
   },
 
   -- Highlight todo, notes, etc in comments
@@ -895,6 +906,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+  --
   { import = 'custom.plugins' },
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
